@@ -1,0 +1,10 @@
+case 1: 16k
+case 2: 234789dklu
+case 3: JKhijs
+case 4: 37Hek
+case 5: nv
+case 6: empty
+case 7: empty
+case 8: empty
+case 9: 0A
+case 10: Ba
