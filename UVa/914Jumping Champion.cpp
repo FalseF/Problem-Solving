@@ -1,0 +1,116 @@
+
+      /*########  IN THE NAME OF ALLAH   ##########*/
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define MAX 999999999999999999
+#define nl printf("\n")
+#define  r0 return 0
+#define  r1 return 1
+#define sf1(x)  scanf("%lld",&x)
+#define sf2(x,y)  scanf("%lld %lld",&x,&y)
+#define sf3(x,y,z)  scanf("%lld %lld %lld",&x,&y,&z)
+#define pf1(x)  printf("%lld\n",x)
+#define pf2(x,y)  printf("%lld %lld\n",x,y)
+#define pf3(x,y,z)  printf("%lld %lld %lld\n",x,y,z)
+#define yes  printf("YES\n")
+#define no  printf("NO\n")
+#define pc(x)  printf("Case %lld :",x)
+#define pb push_back
+#define mp make_pair
+#define pa pair<ll,ll>
+#define mem(a,b) memset(a,b,sizeof(a))
+#define MIN  -99999999999999999
+#define READ(f) freopen(f,"r",stdin)
+#define WRITE(f) freopen(f,"w",stdout)
+#define pi 2.0*acos(0.0)
+#define sp printf(" ")
+#define vs(v) (v.begin(),v.end())
+ll max(ll a,ll b) {if(a>b) return a; else return b;} ll min(ll a,ll b) {if(a<b) return a; else return b;}
+ll power(ll B,ll P){ if(P==0) return 1; ll X=power(B,P/2); if(P%2==0) return X*X; else return B*X*X;}
+ll fx[]={1,-1,0,0}; ll fy[]={0,0,1,-1};
+
+ll A[3000005],B[3000005],C[3000005],visited[3000005],level[3000005];
+char CH[1000][1000];
+vector<ll>V,G;
+bool pck[10000000+100]={0};
+vector<ll>primes;
+ll prim_ck[10000004];
+ll ck;
+void sieve()
+{
+       primes.pb(2);
+       prim_ck[2]=1;
+       for(ll i=3; i*i<=1000005; i+=2)
+        {
+            if(!pck[i])
+            {
+                for(ll j=i*i; j<=10000005; j+=i*2)
+                {
+                    pck[j]=1;
+                }
+            }
+        }
+
+        for(ll i=3;i<=1000005;i+=2)
+        {
+            if(!pck[i])
+            {
+                primes.pb(i);
+
+            }
+        }
+}
+
+int main()
+{
+    WRITE("1.txt");
+    sieve();
+   ll T,N,E,u,Q,v,i,j,k,sum=0,x,y,cs=0;
+   string S,S1;
+   double d1,d2,d3;
+   cin>>T;
+   while(T--)
+   {
+       cin>>u>>v;
+       ll low=lower_bound(primes.begin(),primes.end(),u)-primes.begin();
+       ll uper=upper_bound(primes.begin(),primes.end(),v)-primes.begin();
+       ll cnt[1000]={0};
+       ll mx=0,ans=0;
+       //cout<<low<<" "<<uper<<endl;
+    ll fuk=0;
+       for(i=low+1;i<uper;i++)
+       {
+           ll gap=primes[i]-primes[i-1];
+         //  cout<<gap<<endl;
+           cnt[gap]++;
+           if(cnt[gap]>mx)
+           {
+               mx=cnt[gap];
+               ans=gap;
+           }
+
+       }
+
+       for(i=1;i<=114;i++)
+       {
+           if(cnt[i]==mx) fuk++;
+           if(fuk>1) break;
+       }
+       if(fuk>=2 || mx==0)
+       {
+           cout<<"No jumping champion"<<endl;
+       }
+       else cout<<"The jumping champion is "<<ans<<endl;
+
+   }
+
+
+ /************ALEYA YOUSUF ************/
+
+
+ /************ALLAH IS ALMIGHTY ************/
+return 0;
+
+}
